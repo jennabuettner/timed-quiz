@@ -42,8 +42,8 @@ var questions = [
 
     {
         question: 'What does OMGTIH stand for?',
-        possibleAnswers:['On my Game '],
-        correctAnswer: 'Oh my god this is hard'
+        possibleAnswers:["Oh my god, Timmy isn't here", "Oh my geebus, that is heavy", "Oh my god, this is hard", "Oh my goodness, tomorrow is Hanukkah"],
+        correctAnswer: 'Oh my god, this is hard'
     },
 ]
 
@@ -94,15 +94,15 @@ function populateNextQuestion() {
         if (gameOver) {
             endGame()
 
-        function endGame() {}
-        if (timeLeft <= 0) {
-            timerEl.setAttribute('class', 'hide')
+        function endGame() {
+            prompt('Enter your initials! ☺️')
+
             }
         }
         //stop timer, open modal for initials/score, and set local.storage with initials/score
-        
     }
-}
+    }
+
 
 
 // create function to show high scores from local storage 
