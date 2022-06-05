@@ -28,7 +28,7 @@ button {
     min-height: 50%;
     border: solid rgb(248, 227, 212);
     box-shadow: 0px 0px 10px 10px rgb(248, 227, 212);
-    z-index: 1;
+    z-index: 2;
 }
 
 .modal-header {
@@ -83,12 +83,30 @@ button {
 .game-container .pa-btn {
     display: flex;
     flex-direction: column;
+
 }
 
 .ans-btn-container {
     display: flex;
     flex-direction: column;
+
 }
+
+.modal-result {
+        position: absolute;
+        background-color: rgb(242, 129, 142);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 30px;
+        width: 90%;
+        min-height: 50%;
+        border: solid rgb(248, 227, 212);
+        box-shadow: 0px 0px 10px 10px rgb(248, 227, 212);
+        z-index: 0;
+    }
+
 
 .scores:hover {
     color:rgb(255, 255, 255)

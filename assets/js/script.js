@@ -6,11 +6,16 @@ var correctAnswer = [];
 var penalty = 10;
 var questionIndex = 0;
 var modal = document.querySelector('.modal')
+var resultModal = document.querySelector('.modal-results')
 var startBtn = document.querySelector('.start-btn')
 var questionText = document.querySelector('.question-text')
 var paBtns = document.querySelectorAll('.pa-btn')
 var rightWrong = document.querySelector('.right-wrong')
 var timerEl = document.querySelector('#timer')
+var submitScoreBtn = document.querySelector('.submit-score')
+var highScoresList = document.querySelector('.highscores-list')
+var finalScore = document.querySelector('.final-score')
+
 
 console.log(paBtns)
 
@@ -66,6 +71,10 @@ function runQuiz() {
 
     }
 
+    startBtn.addEventListener('click', runQuiz)
+
+    document.querySelector('.ans-btn-container').addEventListener('click', checkAnswer)
+
 function checkGameOver() {
     if (questionIndex >= questions.length || timeLeft <= 0) {
         gameOver = true;
@@ -91,17 +100,38 @@ function populateNextQuestion() {
         btn.dataset.answer = questions[questionIndex].possibleAnswers[i]
     })
     } else {
-        if (gameOver) {
-            endGame()
+        endGame()
+        var userInput = prompt('You scored ' + finalScore + '. Enter your initials to log your score! :)' )
+        console.log(userInput + ' - ' + finalScore)
 
         function endGame() {
-            prompt('Enter your initials! ☺️')
+            let finalScoreEl = ''
+            finalScore = timeLeft;
+            finalScoreEl.textContent = finalScore
+            console.log(finalScore)
             }
         }
-        //stop timer, open modal for initials/score, and set local.storage with initials/score
+        //stop timer, open prompt for initials/score, and set local.storage with initials/score
     }
-    }
+    
 
+
+
+
+    // function populateHighScores() {
+
+    //     let highScoresList = JSON.parse(localStorage.getItem('highScores')) || [];
+    
+    //     let list = '';
+    //     highScoresList.forEach(score => {
+    //         list = list + '<p>' + score.initials + '  :  ' + score.score + '</p>';
+    //     });
+    //     highScoresListEl.innerHTML = list;
+    // }
+    
+    // submitScoreBtn.addEventListener('click', populateHighscores)
+    
+    // populateHighScores();
 
 
 // create function to show high scores from local storage 
@@ -124,6 +154,6 @@ function checkAnswer(event) {
     }
 
 
-startBtn.addEventListener('click', runQuiz)
+// submitScoreBtn.addEventListener('click', logHighscore)
 
-document.querySelector('.ans-btn-container').addEventListener('click', checkAnswer)
+
