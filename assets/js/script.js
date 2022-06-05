@@ -96,7 +96,6 @@ function populateNextQuestion() {
 
         function endGame() {
             prompt('Enter your initials! ☺️')
-
             }
         }
         //stop timer, open modal for initials/score, and set local.storage with initials/score
