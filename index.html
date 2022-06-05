@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Timed Coding Quiz</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="header-w-stats">
+        <div class="scores">View Highscores</div>
+        <div>Time Left: <span id='timer'></span></div>
+    </nav>
+
+
+    <div class="modal show">
+        <h2 class="modal-header">Timed Coding Quiz</h2>
+        <p class="instructions">Try to answer as many questions as you can before the timer runs out! 
+            Remember: If you get an answer wrong, 10 seconds will be decucted from your time.</p>
+        <button class="start-btn">Start Quiz</button>
+    </div>
+    
+    <section>
+        <div class="game-container">
+            <div class="game-container-shadow"></div>
+                <h3 class="question-text"></h3>
+                <div class="ans-btn-container">
+                    <button class="pa-btn" data-answer="test1">1</button>
+                    <button class="pa-btn" data-answer="test2">2</button>
+                    <button class="pa-btn" data-answer="test3">3</button>
+                    <button class="pa-btn" data-answer="test4">4</button>
+                </div>
+            <h2 class='right-wrong'></h2>
+        </div>
+    </section>
+
+  <script src="./assets/js/script.js"></script>
+  
+</body>
+</html>
