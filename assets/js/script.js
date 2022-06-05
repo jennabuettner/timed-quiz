@@ -103,6 +103,12 @@ function populateNextQuestion() {
         endGame()
         var userInput = prompt('You scored ' + finalScore + '. Enter your initials to log your score! :)' )
         console.log(userInput + ' - ' + finalScore)
+        let okHighscores = confirm('Thanks. Click "OK" to see how your score compared to others!')
+
+    if (okHighscores) {
+        window.location = 
+    }
+    
 
         function endGame() {
             let finalScoreEl = ''
