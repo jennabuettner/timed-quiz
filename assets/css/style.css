@@ -107,6 +107,10 @@ button {
         z-index: 0;
     }
 
+#restart {
+    color:rgb(248, 227, 212);
+    text-decoration: none;
+}
 
 .scores:hover {
     color:rgb(255, 255, 255)

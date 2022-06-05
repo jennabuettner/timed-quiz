@@ -6,7 +6,6 @@ var correctAnswer = [];
 var penalty = 10;
 var questionIndex = 0;
 var modal = document.querySelector('.modal')
-var resultModal = document.querySelector('.modal-results')
 var startBtn = document.querySelector('.start-btn')
 var questionText = document.querySelector('.question-text')
 var paBtns = document.querySelectorAll('.pa-btn')
@@ -15,6 +14,7 @@ var timerEl = document.querySelector('#timer')
 var submitScoreBtn = document.querySelector('.submit-score')
 var highScoresList = document.querySelector('.highscores-list')
 var finalScore = document.querySelector('.final-score')
+var restartBtn = document.querySelector('.restart-btn')
 
 
 console.log(paBtns)
@@ -71,9 +71,9 @@ function runQuiz() {
 
     }
 
-    startBtn.addEventListener('click', runQuiz)
+    startBtn.addEventListener('click', runQuiz);
 
-    document.querySelector('.ans-btn-container').addEventListener('click', checkAnswer)
+    document.querySelector('.ans-btn-container').addEventListener('click', checkAnswer);
 
 function checkGameOver() {
     if (questionIndex >= questions.length || timeLeft <= 0) {
@@ -104,40 +104,38 @@ function populateNextQuestion() {
         var userInput = prompt('You scored ' + finalScore + '. Enter your initials to log your score! :)' )
         console.log(userInput + ' - ' + finalScore)
         let okHighscores = confirm('Thanks. Click "OK" to see how your score compared to others!')
-
+        
     if (okHighscores) {
-        window.location = 
+        window.location = 'endgame.html'
     }
     
 
-        function endGame() {
-            let finalScoreEl = ''
-            finalScore = timeLeft;
-            finalScoreEl.textContent = finalScore
-            console.log(finalScore)
-            }
+    function endGame() {
+        let finalScoreEl = ''
+
+        finalScore = timeLeft;
+        finalScoreEl.textContent = finalScore;
+        console.log(finalScore);
         }
-        //stop timer, open prompt for initials/score, and set local.storage with initials/score
+    }
     }
     
 
 
 
 
-    // function populateHighScores() {
+    function populateHighScores() {
 
-    //     let highScoresList = JSON.parse(localStorage.getItem('highScores')) || [];
+        let highScoresList = JSON.parse(localStorage.getItem('highScores')) || [];
     
-    //     let list = '';
-    //     highScoresList.forEach(score => {
-    //         list = list + '<p>' + score.initials + '  :  ' + score.score + '</p>';
-    //     });
-    //     highScoresListEl.innerHTML = list;
-    // }
+        let list = highScoresList;
+        highScoresList.forEach(finalScore => {
+            list = list + userInput + ' - ' + finalScore;
+        });
+
+    }
     
-    // submitScoreBtn.addEventListener('click', populateHighscores)
-    
-    // populateHighScores();
+    populateHighScores();
 
 
 // create function to show high scores from local storage 
@@ -158,8 +156,3 @@ function checkAnswer(event) {
     }
 
     }
-
-
-// submitScoreBtn.addEventListener('click', logHighscore)
-
-
