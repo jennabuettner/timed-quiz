@@ -1,9 +1,7 @@
-var score = 0;
 var timeLeft = 30;
 var questionsArray = [];
 var gameOver = false;
 var correctAnswer = [];
-var penalty = 10;
 var questionIndex = 0;
 var modal = document.querySelector('.modal')
 var startBtn = document.querySelector('.start-btn')
@@ -12,7 +10,6 @@ var paBtns = document.querySelectorAll('.pa-btn')
 var rightWrong = document.querySelector('.right-wrong')
 var timerEl = document.querySelector('#timer')
 var submitScoreBtn = document.querySelector('.submit-score')
-var highScoresList = document.querySelector('.highscores-list')
 var finalScore = document.querySelector('.final-score')
 var restartBtn = document.querySelector('.restart-btn')
 
@@ -112,7 +109,6 @@ function populateNextQuestion() {
 
     function endGame() {
         let finalScoreEl = ''
-
         finalScore = timeLeft;
         finalScoreEl.textContent = finalScore;
         console.log(finalScore);
@@ -120,25 +116,9 @@ function populateNextQuestion() {
     }
     }
     
-
-
-
-
-    function populateHighScores() {
-
-        let highScoresList = JSON.parse(localStorage.getItem('highScores')) || [];
-    
-        let list = highScoresList;
-        highScoresList.forEach(finalScore => {
-            list = list + userInput + ' - ' + finalScore;
-        });
-
-    }
-    
-    populateHighScores();
-
-
-// create function to show high scores from local storage 
+    // function populateHighScores() {
+    //     let highScoresList = JSON.parse(localStorage.getItem('highscores')) || [];
+    // this is extremely frustrating
 
 function checkAnswer(event) {
     var element = event.target
